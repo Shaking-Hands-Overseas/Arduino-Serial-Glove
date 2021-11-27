@@ -9,11 +9,7 @@ I recommend using my arduino Firmware, but feel free to use whatever you prefer.
 ```
 git clone https://github.com/Shaking-Hands-Overseas/Arduino-Serial-Glove
 ```
-2. Install Necessary Dependencies using pip and the included requirements file:
-```
-pip install -e requirements.txt
-```
-or install manually:
+2. Install Necessary Dependencies using pip:
 ```
 pip install pyserial
 ```
