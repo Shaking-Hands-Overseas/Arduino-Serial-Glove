@@ -10,10 +10,10 @@ from requests import post
 from time import sleep
 
 # SERIAL PORT: Windows = COM1, COM2, ... / Linux = /dev/ttyACM0, /dev/ttyACM1,...
-SERIAL_PORT = "COM3"
+SERIAL_PORT = "COM6"
 
 # API URL FOR SENDING DATA
-URL = 'https://lqinkt.deta.dev/servo'
+URL = 'https://xlbi6e.deta.dev/servo'
 
 #ARDUINO SERIAL BAUDRATE
 BAUDRATE = 9600
@@ -45,7 +45,10 @@ while True:
     except:
         print(f"[ERROR] Arduino not connected to port {SERIAL_PORT}")
         ser = arduino_connect()
-    post_request = { "s1": int(data[0]), "s2": int(data[1]), "s3": int(data[2]), "s4": int(data[3]),"s5": int(data[4]) }
+    try:
+        post_request = { "s1": int(data[0]), "s2": int(data[1]), "s3": int(data[2]), "s4": int(data[3]),"s5": int(data[4]) }
+    except:
+        pass
     #sends the data to our API and prints the answser. If the response is 200, it means the deta was sent succesfull
     try:
         Req_Response = Post_req(URL=URL, post_request=post_request)
